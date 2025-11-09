@@ -1,0 +1,23 @@
+<div class="p-4">
+  <h2>Convertir CSV a texto con tabulaciones</h2>
+
+  <input type="file" accept=".csv" (change)="onFileSelected($event)" />
+  <br /><br />
+
+  <div *ngIf="convertedText">
+    <label for="fileName"><strong>Nombre del archivo:</strong></label>
+    <input
+      id="fileName"
+      type="text"
+      [(ngModel)]="fileName"
+      placeholder="Nombre del archivo"
+      class="border p-1 ml-2"
+    />
+    <span class="text-gray-500">(.txt)</span>
+    <br /><br />
+    <button (click)="downloadTxt()">Descargar TXT</button>
+  </div>
+
+</div>
+
+<div class="footer"> <p>WR60</p></div>
