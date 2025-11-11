@@ -1,23 +1,49 @@
-<div class="p-4">
-  <h2>Convertir CSV a texto con tabulaciones</h2>
 
-  <input type="file" accept=".csv" (change)="onFileSelected($event)" />
-  <br /><br />
+<div class="container">
+  <mat-card class="card">
+    <h2>Convertir CSV a texto con tabulaciones</h2>
+    <mat-divider></mat-divider>
+    <br />
 
-  <div *ngIf="convertedText">
-    <label for="fileName"><strong>Nombre del archivo:</strong></label>
     <input
-      id="fileName"
-      type="text"
-      [(ngModel)]="fileName"
-      placeholder="Nombre del archivo"
-      class="border p-1 ml-2"
+      type="file"
+      accept=".csv"
+      (change)="onFileSelected($event)"
+      #fileUpload
+      hidden
     />
-    <span class="text-gray-500">(.txt)</span>
-    <br /><br />
-    <button (click)="downloadTxt()">Descargar TXT</button>
-  </div>
+    <button mat-raised-button color="primary" (click)="fileUpload.click()">
+      <mat-icon>upload_file</mat-icon>
+      Seleccionar archivo CSV
+    </button>
 
+
+    <div *ngIf="convertedText" class="result-section">
+      <mat-form-field appearance="outline" class="file-name-field">
+        <mat-label>Nombre del archivo</mat-label>
+        <input
+          matInput
+          id="fileName"
+          type="text"
+          [(ngModel)]="fileName"
+          placeholder="Ej: resultado"
+        />
+        <span matSuffix>.txt</span>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="downloadTxt()"
+        class="download-btn"
+      >
+        <mat-icon>download</mat-icon>
+        Descargar TXT
+      </button>
+    </div>
+  </mat-card>
+
+  <footer class="footer">
+    <h3>WR60</h3>
+  </footer>
 </div>
-
-<div class="footer"> <p>WR60</p></div>

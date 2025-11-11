@@ -1,13 +1,27 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {MatDividerModule} from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-convertidor',
   standalone: true,
   imports: [
     NgIf,
-    FormsModule
+    MatButtonModule,
+    MatCardModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    FormsModule,
+  
   ],
   templateUrl: './convertidor.component.html',
   styleUrl: './convertidor.component.css'
@@ -27,8 +41,8 @@ export class ConvertidorComponent {
       const lines = csv.trim().split('\n');
       const rows = lines.map(line => line.split(','));
 
-      // 🔹 Elegí la celda que querés usar como nombre del archivo:
-      // Ejemplo: segunda columna de la primera fila
+      // Seleccionar la celda a usar como nombre del archivo:
+      // Primera columna de la segunda fila
       let nameFromCsv = 'convertido';
       if (rows.length > 0 && rows[0].length > 1) {
         nameFromCsv = rows[1][0].trim() || 'convertido';
