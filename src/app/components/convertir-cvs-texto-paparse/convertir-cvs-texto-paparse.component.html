@@ -1,0 +1,54 @@
+
+<div class="container">
+  <mat-card class="card">
+    <h2>Convertir CSV a texto delimitado por tabulaciones</h2>
+    <mat-divider></mat-divider>
+    <br />
+
+    <input
+      type="file"
+      accept=".csv"
+      (change)="onFileSelected($event)"
+      #fileUpload
+      hidden
+    />
+    <button mat-raised-button color="primary" (click)="fileUpload.click()">
+      <mat-icon>upload_file</mat-icon>
+      Seleccionar archivo CSV
+    </button>
+
+
+    <div *ngIf="convertedText" class="result-section">
+      <mat-form-field appearance="outline" class="file-name-field">
+        <mat-label>Nombre del archivo</mat-label>
+        <input
+          matInput
+          id="fileName"
+          type="text"
+          [(ngModel)]="fileName"
+          placeholder="Ej: resultado"
+        />
+        <span matSuffix>.txt</span>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="downloadTxt()"
+        class="download-btn"
+      >
+        <mat-icon>download</mat-icon>
+        Descargar TXT
+      </button>
+    </div>
+  </mat-card>
+  <br>
+  <footer class="footer">
+    <h4>Seleccione el archivo csv proporcionado por temetra, se obtendrá el archivo en formato texto<p>delimitado por tabulaciones listo para subir a comercial (GLM suite)</h4>
+   <!--  <h4>No se realizan cambios en los datos recibidos, ni el formato, como puede ser la fecha.</h4>
+    <h4>Los datos no se suben a ningún servidor, se procesan en el navegador (no hay backend)</h4>
+    <br> -->
+    <br>
+    <h2>WR60</h2>
+  </footer>
+</div>

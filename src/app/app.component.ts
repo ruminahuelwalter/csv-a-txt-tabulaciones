@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ConvertidorComponent } from "./components/convertidor/convertidor.component";
-import { MatButtonModule } from '@angular/material/button';
+import { ConvertirCvsTextoPaparseComponent } from './components/convertir-cvs-texto-paparse/convertir-cvs-texto-paparse.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ConvertidorComponent,
-    MatButtonModule
-    ],
+  imports: [ConvertirCvsTextoPaparseComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

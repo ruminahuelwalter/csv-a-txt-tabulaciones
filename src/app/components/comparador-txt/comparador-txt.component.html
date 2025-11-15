@@ -1,0 +1,14 @@
+<mat-card class="p-4">
+
+  <h2>Comparar TXT</h2>
+
+  <input type="file" (change)="cargarArchivo($event, 'a')" accept=".txt">
+  <input type="file" (change)="cargarArchivo($event, 'b')" accept=".txt">
+
+  <button mat-raised-button color="primary" (click)="comparar()">
+    Comparar
+  </button>
+
+  <pre>{{ resultado }}</pre>
+
+</mat-card>
